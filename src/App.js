@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import './assets/fonts/iconfont.css'
 
 import GlobalHeader from './componetns/global-header/index'
 

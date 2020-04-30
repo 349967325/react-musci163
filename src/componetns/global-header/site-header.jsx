@@ -13,7 +13,7 @@ class SiteHeader extends Component {
 
           <div className={`${styles.miniCart}`}>
             <div>
-              <span></span>
+              <i className={`iconfont icon-gouwuche ${styles.gouwuche}`} />
               <span>购物车</span>
               <span>(10)</span>
             </div>
