@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 import logoImg from '@/assets/images/mall-logo.jpg'
 import styles from './siteheader.module.scss'
@@ -14,7 +14,8 @@ class SiteHeader extends Component {
 
           <div className={`${styles.headerSearch}`}>
             <div>
-              <input type='text' className={`${styles.searchInput}`}
+              <input
+                type='text' className={`${styles.searchInput}`}
                 placeholder='请输入要搜索的商品'
                 autoComplete='off'
               />
@@ -31,7 +32,7 @@ class SiteHeader extends Component {
               <span>(10)</span>
             </div>
 
-            <div className={`${styles.cartDrop}`}></div>
+            <div className={`${styles.cartDrop}`} />
           </div>
 
           <div className={`${styles.myRegister}`}>

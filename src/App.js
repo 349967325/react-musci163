@@ -1,23 +1,65 @@
-import React from 'react';
-import './App.css';
-import './assets/fonts/iconfont.css'
+
+import React, { Component } from 'react'
+
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from 'react-router-dom'
+
+import { connect } from 'react-redux'
 
 import GlobalHeader from './componetns/global-header/index'
+import { routerMap } from './routes/index.js'
 
-function App() {
-  return (
-    <div className="App">
-      <div>
-        <GlobalHeader />
-      </div>
+import './App.css'
+import './assets/fonts/iconfont.css'
 
-      <div>
-        单页内容
-      </div>
+class App extends Component {
+  static propTypes = {
 
-      <div>页面Footer</div>
-    </div>
-  );
+  }
+
+  state = {}
+
+  componentDidMount () {}
+
+  render () {
+    return (
+      <Router>
+        <div className='App'>
+          <div>
+            <GlobalHeader />
+          </div>
+
+          <div>
+            <Switch>
+              <Route
+                exact
+                path='/'
+                render={props => {
+                  return <Redirect to='/home' />
+                }}
+              />
+
+              {routerMap.map((route, i) => (
+                <Route
+                  name={route.name}
+                  exact
+                  key={i}
+                  path={route.path}
+                  render={props => (<route.component {...props} />)}
+                />
+              ))}
+            </Switch>
+          </div>
+
+          <div>页面Footer</div>
+        </div>
+      </Router>
+    )
+  }
 }
 
-export default App;
+export default connect()(App)

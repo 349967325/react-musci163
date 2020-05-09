@@ -9,3 +9,8 @@
   visibility: hidden;
   height: 0;
 }
+
+.w1200 {
+  margin: 0px auto;
+  width: 1200px;
+}
