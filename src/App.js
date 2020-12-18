@@ -10,7 +10,8 @@ import {
 
 import { connect } from 'react-redux'
 
-import GlobalHeader from './componetns/global-header/index'
+import GlobalHeader from './components/global-header/index'
+import GlobalFooter from './components/global-footer/index'
 import { routerMap } from './routes/index.js'
 
 import './App.css'
@@ -54,7 +55,7 @@ class App extends Component {
               </Switch>
             </div>
 
-            <div>页面Footer</div>
+            <GlobalFooter />
           </div>
         </Router>
       </div>

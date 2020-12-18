@@ -6,7 +6,7 @@ class GlobalFooter extends Component {
   render() {
     return (
       <div className={`${styles.footerBar}`}>
-        这是页面底部
+        这是底部
       </div>
     )
   }
