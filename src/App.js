@@ -27,37 +27,38 @@ class App extends Component {
 
   render () {
     return (
-      <Router>
-        <div className='App'>
-          <div>
+      <div>
+        <Router>
+          <div className='App'>
             <GlobalHeader />
-          </div>
 
-          <div>
-            <Switch>
-              <Route
-                exact
-                path='/'
-                render={props => {
-                  return <Redirect to='/home' />
-                }}
-              />
-
-              {routerMap.map((route, i) => (
+            <div>
+              <Switch>
                 <Route
-                  name={route.name}
                   exact
-                  key={i}
-                  path={route.path}
-                  render={props => (<route.component {...props} />)}
+                  path='/'
+                  render={props => {
+                    return <Redirect to='/home' />
+                  }}
                 />
-              ))}
-            </Switch>
-          </div>
 
-          <div>页面Footer</div>
-        </div>
-      </Router>
+                {routerMap.map((route, i) => (
+                  <Route
+                    name={route.name}
+                    exact
+                    key={i}
+                    path={route.path}
+                    render={props => (<route.component {...props} />)}
+                  />
+                ))}
+              </Switch>
+            </div>
+
+            <div>页面Footer</div>
+          </div>
+        </Router>
+      </div>
+
     )
   }
 }
