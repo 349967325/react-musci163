@@ -20,13 +20,13 @@ const flyOuter = React.forwardRef(
     const _flyOuterStyle = Object.assign(
       {
         position: 'absolute',
-        width: '20px',
-        height: '20px',
+        width: '24px',
+        height: '24px',
         transition: `transform ${runTime}s`,
         display: 'none',
-        margin: ' -20px 0 0 -20px',
+        margin: ' -24px 0 0 -24px',
         transitionTimingFunction: 'linear',
-        zIndex: 3,
+        zIndex: 200,
       },
       flyOuterStyle,
     )
@@ -38,15 +38,15 @@ const flyOuter = React.forwardRef(
         width: '100%',
         height: '100%',
         borderRadius: '50%',
-        backgroundColor: '#FF8A2B',
+        backgroundColor: '#FF4D4F',
         color: '#ffffff',
         textAlign: 'center',
-        lineHeight: '1',
+        lineHeight: '24px',
         transition: `transform ${runTime}s`,
         justifyContent: 'center',
         alignItems: 'center',
-        // transitionTimingFunction: 'cubic-bezier(.55,0,.85,.36)', // 向上抛物线的右边
-        transitionTimingFunction: 'cubic-bezier(0, 0, .25, 1.3)', // 向下抛物线的左边
+        // transitionTimingFunction: 'cubic-bezier(0.55, 0, 0.85, 0.36)', // 向上抛物线的右边
+        transitionTimingFunction: 'cubic-bezier(0, 0, 0.25, 1.3)', // 向下抛物线的左边
       },
       flyInnerStyle,
     )

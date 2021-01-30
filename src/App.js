@@ -9,10 +9,10 @@ import {
 } from 'react-router-dom'
 
 import { connect } from 'react-redux'
+import { routerMap } from './routes/index.js'
 
 import GlobalHeader from './components/global-header/index'
 import GlobalFooter from './components/global-footer/index'
-import { routerMap } from './routes/index.js'
 
 import './App.css'
 import './assets/fonts/iconfont.css'
@@ -45,9 +45,8 @@ class App extends Component {
 
                 {routerMap.map((route, i) => (
                   <Route
+                    key={i} exact
                     name={route.name}
-                    exact
-                    key={i}
                     path={route.path}
                     render={props => (<route.component {...props} />)}
                   />
