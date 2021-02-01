@@ -34,25 +34,6 @@ module.exports = {
 
 // 规则配置
  "rules": {
-    "key-spacing": "off",
-    "jsx-quotes": [
-      2, "prefer-single"
-    ],
-    "object-curly-spacing": [
-      2, "always"
-    ],
-    "comma-dangle": "off",
-    "no-tabs": "off",
-    "indent": [
-      2, 2
-    ],
-    "space-before-function-paren": 0,
-    "no-spaced-func": 2,
-    "react/jsx-indent": [
-      2, 2
-    ],
-    "react/jsx-indent-props": [
-      2, 2
-    ]
+
   }
 }

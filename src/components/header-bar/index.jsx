@@ -11,14 +11,12 @@ class HeaderBar extends Component {
     return (
       <div className={`${styles.headerBar}`}>
         <div className={`${styles.barContainer} clearfix`}>
-          <div className={`${styles.barNav}`}></div>
+          <div className={`${styles.barNav}`} />
 
-          <div className={`${styles.barUser}`}>
-
-          </div>
+          <div className={`${styles.barUser}`} />
         </div>
       </div>
-    );
+    )
   }
 }
 

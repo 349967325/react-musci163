@@ -20,7 +20,7 @@ class Home extends Component {
     })
   }
 
-  render() {
+  render () {
     const { data = [] } = this.state
 
     return (

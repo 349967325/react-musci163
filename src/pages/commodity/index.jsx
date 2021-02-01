@@ -29,7 +29,7 @@ class Commidity extends Component {
     })
   }
 
-  render() {
+  render () {
     const { tableData = [] } = this.state
 
     return (
