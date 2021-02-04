@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react'
-
+import Proptypes from 'prop-types'
 import {
   BrowserRouter as Router,
   Route,
@@ -11,15 +11,17 @@ import {
 import { connect } from 'react-redux'
 import { routerMap } from './routes/index.js'
 
-import GlobalHeader from './components/global-header/index'
-import GlobalFooter from './components/global-footer/index'
+import PageLoading from '@/components/pageLoading/index'
+// import GlobalHeader from './components/global-header/index'
+// import GlobalFooter from './components/global-footer/index'
 
 import './App.css'
 import './assets/fonts/iconfont.css'
 
 class App extends Component {
   static propTypes = {
-
+    token: Proptypes.string,
+    loading: Proptypes.bool
   }
 
   state = {}
@@ -27,10 +29,12 @@ class App extends Component {
   componentDidMount () {}
 
   render () {
+    const { token, loading = false } = this.props
+    console.log(loading)
+
     return (
       <div className='App'>
         <Router>
-          <GlobalHeader />
           <Switch>
             <Route
               exact path='/'
@@ -44,17 +48,36 @@ class App extends Component {
                 key={i} exact
                 name={route.name}
                 path={route.path}
-                render={props => (<route.component {...props} />)}
+                render={props => (
+                  !route.auth
+                    ? <route.component {...props} />
+                    : (
+                      token && token !== ''
+                        ? <route.component {...props} />
+                        : <Redirect to={{ pathname: '/login', state: { from: props.location } }} />
+                    )
+                )}
               />
             ))}
           </Switch>
-
-          <GlobalFooter />
         </Router>
+
+        {
+          loading
+            ? <PageLoading />
+            : null
+        }
       </div>
 
     )
   }
 }
 
-export default connect()(App)
+const mapStateToProps = (state, ownProps) => {
+  return {
+    token: state.token,
+    loading: state.loading
+  }
+}
+
+export default connect(mapStateToProps)(App)

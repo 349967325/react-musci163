@@ -21,26 +21,26 @@ export default React.forwardRef(() => {
       startRef,
       endRef: endRef1,
       flyInnerStyle: {
-        transitionTimingFunction: 'cubic-bezier(0, 0, 0.25, 1.3)',
+        transitionTimingFunction: 'cubic-bezier(0, 0, 0.25, 1.3)'
       },
       beforeRun: () => {
         console.log('开始起飞啦~~')
       },
       afterRun: () => {
         console.log('飞行结束啦~~')
-      },
+      }
     },
-    <span>1</span>,
+    <span>1</span>
   )
   const res2 = useParabola(
     {
       startRef,
       endRef: endRef2,
       flyInnerStyle: {
-        transitionTimingFunction: 'cubic-bezier(0, 0, 0.25, 1.3)',
-      },
+        transitionTimingFunction: 'cubic-bezier(0, 0, 0.25, 1.3)'
+      }
     },
-    <span>1</span>,
+    <span>1</span>
   )
   const res3 = useParabola(
     {
@@ -48,22 +48,22 @@ export default React.forwardRef(() => {
       endRef: endRef3,
       flyOuterStyle: { transition: 'transform 2.5s' },
       flyInnerStyle: { transition: 'transform 2.5s' },
-      runTime: 2500,
+      runTime: 2500
     },
-    <span>1</span>,
+    <span>1</span>
   )
   const res4 = useParabola(
     {
       startRef,
       endRef: endRef4,
       flyInnerStyle: {
-        transitionTimingFunction: 'cubic-bezier(.55,0,.85,.36)',
-      },
+        transitionTimingFunction: 'cubic-bezier(.55,0,.85,.36)'
+      }
     },
-    <span>1</span>,
+    <span>1</span>
   )
 
-  function startRunning() {
+  function startRunning () {
     if (num % 4 === 1) {
       res1.running(1)
     }
