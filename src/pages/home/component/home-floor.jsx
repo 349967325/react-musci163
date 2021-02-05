@@ -5,14 +5,14 @@ import styles from './homefloor.module.scss'
 
 class HomeFloor extends Component {
   static propTypes = {
-    data: PropTypes.object,
+    data: PropTypes.object
   }
 
   state = {
 
   }
 
-  render() {
+  render () {
     const { data = {} } = this.props
 
     return (

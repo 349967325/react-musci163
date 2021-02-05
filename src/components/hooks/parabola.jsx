@@ -26,9 +26,9 @@ const flyOuter = React.forwardRef(
         display: 'none',
         margin: ' -24px 0 0 -24px',
         transitionTimingFunction: 'linear',
-        zIndex: 200,
+        zIndex: 200
       },
-      flyOuterStyle,
+      flyOuterStyle
     )
 
     // 运动小球内层样式
@@ -46,9 +46,9 @@ const flyOuter = React.forwardRef(
         justifyContent: 'center',
         alignItems: 'center',
         // transitionTimingFunction: 'cubic-bezier(0.55, 0, 0.85, 0.36)', // 向上抛物线的右边
-        transitionTimingFunction: 'cubic-bezier(0, 0, 0.25, 1.3)', // 向下抛物线的左边
+        transitionTimingFunction: 'cubic-bezier(0, 0, 0.25, 1.3)' // 向下抛物线的左边
       },
-      flyInnerStyle,
+      flyInnerStyle
     )
 
     return (
@@ -58,14 +58,14 @@ const flyOuter = React.forwardRef(
         </div>
       </div>
     )
-  },
+  }
 )
 
 flyOuter.propTypes = {
   children: PropTypes.object,
   flyOuterStyle: PropTypes.object,
   flyInnerStyle: PropTypes.object,
-  runTime: PropTypes.number,
+  runTime: PropTypes.number
 }
 
 /**
@@ -80,7 +80,7 @@ flyOuter.propTypes = {
  * @params children - 小球扩展内容
  * @returns { running } - 小球开始运动函数
  */
-export default function useParabola(
+export default function useParabola (
   {
     startRef,
     endRef,
@@ -88,9 +88,9 @@ export default function useParabola(
     flyInnerStyle,
     runTime = 800,
     beforeRun = () => {},
-    afterRun = () => {},
+    afterRun = () => {}
   },
-  children,
+  children
 ) {
   const containerRef = useRef(document.createElement('div'))
   const innerRef = useRef()
@@ -111,14 +111,14 @@ export default function useParabola(
         React.createElement(
           flyOuter,
           { ref: innerRef, flyOuterStyle, flyInnerStyle, runTime: runTime / 1000 },
-          children,
+          children
         ),
-        containerRef.current,
+        containerRef.current
       )
     }
   }, [startRef, endRef]); // eslint-disable-line
 
-  function running() {
+  function running () {
     if (startRef && endRef && innerRef) {
       beforeRun()
       const flyOuterRef = innerRef.current.flyOuterRef.current

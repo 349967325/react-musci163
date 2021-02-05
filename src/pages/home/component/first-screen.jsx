@@ -49,7 +49,7 @@ class FirstScreen extends Component {
     /* eslint-enable */
   }
 
-  render() {
+  render () {
     const { bannerList = [] } = this.state
 
     return (

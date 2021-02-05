@@ -152,9 +152,20 @@
   "babel": {
     "presets": [
       "react-app"
+    ],
+    "plugins": [
+      [
+        "import",
+        {
+          "libraryName": "antd",
+          "libraryDirectory": "es",
+          "style": "css"
+        }
+      ]
     ]
   },
   "devDependencies": {
+    "babel-plugin-import": "^1.13.3",
     "cross-env": "^7.0.2",
     "eslint-config-standard": "^14.1.1",
     "eslint-config-standard-react": "^9.2.0",

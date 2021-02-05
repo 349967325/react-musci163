@@ -42,7 +42,7 @@ axios.interceptors.request.use(config => {
 
 // http response响应器
 axios.interceptors.response.use(response => {
-  // hideFullLoading()
+  hideFullLoading()
   if (response.status === 200) {
     const { data } = response
 
@@ -72,9 +72,7 @@ axios.interceptors.response.use(response => {
 export function get (url, params) {
   return new Promise((resolve, reject) => {
     const _url = host + url
-    axios.get(_url, {
-      params: params
-    }).then(res => {
+    axios.get(_url, { params: params }).then(res => {
       resolve(res)
     }).catch(err => {
       reject(err.data)

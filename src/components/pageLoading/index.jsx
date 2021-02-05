@@ -8,7 +8,7 @@ class PageLoading extends Component {
     return (
       <div className={`${styles.loadingWrap}`}>
         <div className={`${styles.loadContent}`}>
-          <Spin size='large' tip='加载中...' />
+          <Spin size='large' />
         </div>
       </div>
     )
