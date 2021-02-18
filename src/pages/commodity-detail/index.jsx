@@ -7,13 +7,6 @@ class CommodityDetail extends Component {
   state = {}
 
   componentDidMount () {
-    const status = 110
-    if ([0, 10, 100, 105, 110, 1000].includes(+status)) {
-      console.log('执行===')
-    } else {
-      console.log('不存在===')
-    }
-
     this.getCommodityDetail()
   }
 
