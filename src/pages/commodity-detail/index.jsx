@@ -1,28 +1,28 @@
 import React, { Component } from 'react'
+import { Row, Tree, Card, Input } from 'antd'
 
-import Api from '@/common/api/index'
+const { Search } = Input
 
 class CommodityDetail extends Component {
   static propTypes = {}
   state = {}
 
   componentDidMount () {
-    this.getCommodityDetail()
-  }
 
-  getCommodityDetail = () => {
-    Api.getCommodityDetail({ commoditySkuId: 56276 }).then(res => {
-      const { code, data } = res
-      if (+code === 10000) {
-        console.log(data)
-      }
-    })
   }
 
   render () {
     return (
       <div style={{ fontSize: '14px', color: '#333333', textAlign: 'center' }}>
-        这是详情页
+        <Card>
+          <Row style={{ marginBottom: '24px' }}>
+            <Search />
+          </Row>
+          <Row>
+            <Tree />
+          </Row>
+        </Card>
+
       </div>
     )
   }
