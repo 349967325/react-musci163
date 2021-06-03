@@ -30,7 +30,6 @@ class App extends Component {
 
   render () {
     const { token, loading = false } = this.props
-    console.log(loading)
 
     return (
       <div className='App'>
