@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
-import pic01 from '@/assets/images/product_01.jpg'
-import bigpic from '@/assets/images/product_big_01.jpg'
+import pic01 from '@/assets/images/product_LC1R.png'
+// import bigpic from '@/assets/images/product_big_01.jpg'
 
 import styles from './index.module.scss'
 
@@ -62,8 +62,6 @@ class Magnifier extends Component {
 
   render () {
     const { show = false, left = 0, top = 0, zoomLeft = 0, zoomTop = 0 } = this.state
-    console.log('zoomLeft===', zoomLeft)
-    console.log('zoomTop===', zoomTop)
 
     return (
       <div className={`${styles.pageWrap}`}>
@@ -89,7 +87,7 @@ class Magnifier extends Component {
               ref={(el) => { this.bigimg = el }}
               className={`${styles.zoompic}`}
               style={{ position: 'absolute', left: `${zoomLeft}px`, top: `${zoomTop}px` }}
-              src={bigpic}
+              src={pic01}
             />
           </div>
         </div>
