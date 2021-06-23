@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 
-import styles from './footer.module.scss'
+import styles from './index.module.scss'
 
 class GlobalFooter extends Component {
-  render() {
+  render () {
     return (
       <div className={`${styles.footerBar}`}>
         这是底部

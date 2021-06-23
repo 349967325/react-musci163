@@ -8,20 +8,15 @@ import {
   Redirect
 } from 'react-router-dom'
 
+import GlobalHeader from './components/globalHeader/index'
+import GlobalFooter from './components/globalFooter/index'
+
 import { connect } from 'react-redux'
 import { routerMap } from './routes/index.js'
 
-import PageLoading from '@/components/pageLoading/index'
-// import GlobalHeader from './components/global-header/index'
-// import GlobalFooter from './components/global-footer/index'
-
-import './App.css'
-import './assets/fonts/iconfont.css'
-
 class App extends Component {
   static propTypes = {
-    token: Proptypes.string,
-    loading: Proptypes.bool
+    token: Proptypes.string
   }
 
   state = {}
@@ -29,53 +24,45 @@ class App extends Component {
   componentDidMount () {}
 
   render () {
-    const { token, loading = false } = this.props
+    const { token = '' } = this.props
 
     return (
-      <div className='App'>
-        <Router>
-          <Switch>
+      <Router>
+        <GlobalHeader />
+
+        <Switch>
+          <Route
+            exact path='/'
+            render={props => { return <Redirect to='/home' /> }}
+          />
+
+          {routerMap.map((route, i) => (
             <Route
-              exact path='/'
-              render={props => {
-                return <Redirect to='/home' />
-              }}
+              key={i} exact
+              name={route.name}
+              path={route.path}
+              render={props => (
+                !route.auth
+                  ? <route.component {...props} />
+                  : (
+                    token && token !== ''
+                      ? <route.component {...props} />
+                      : <Redirect to={{ pathname: '/login', state: { from: props.location } }} />
+                  )
+              )}
             />
+          ))}
+        </Switch>
 
-            {routerMap.map((route, i) => (
-              <Route
-                key={i} exact
-                name={route.name}
-                path={route.path}
-                render={props => (
-                  !route.auth
-                    ? <route.component {...props} />
-                    : (
-                      token && token !== ''
-                        ? <route.component {...props} />
-                        : <Redirect to={{ pathname: '/login', state: { from: props.location } }} />
-                    )
-                )}
-              />
-            ))}
-          </Switch>
-        </Router>
-
-        {
-          loading
-            ? <PageLoading />
-            : null
-        }
-      </div>
-
+        <GlobalFooter />
+      </Router>
     )
   }
 }
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    token: state.token,
-    loading: state.loading
+    token: state.token
   }
 }
 
