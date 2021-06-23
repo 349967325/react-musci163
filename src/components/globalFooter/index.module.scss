@@ -1,6 +1,19 @@
 .footerBar {
-  padding: 48px 16px 24px 16px;
-  text-align: center;
-  font-size: 14px;
-  color: #333333;
+  position: relative;
+  height: 170px;
+  overflow: hidden;
+  border-top: 1px solid rgb(211, 211, 211);
+  background-color: rgb(242, 242, 242);
+}
+
+.footerContainer {
+  margin: 0px auto;
+  width: 980px;
+}
+
+.copy {
+  float: left;
+  padding-top: 15px;
+  width: 520px;
+  line-height: 24px;
 }

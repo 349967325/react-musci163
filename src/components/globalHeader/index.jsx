@@ -1,43 +1,67 @@
 import React, { memo } from 'react'
-import { NavLink } from 'react-router-dom'
-import { Form, Input, Icon } from 'antd'
+import { NavLink, Link } from 'react-router-dom'
+import { Input, Icon } from 'antd'
+
+import AvatarDropdown from './avatarDropdown'
+import { headerLinks, dicoverMenu } from '@/common/localdatas/localdatas'
 
 import styles from './index.module.scss'
 
-const headerLinks = [
-  { title: '发现音乐' },
-  { title: '我的音乐' },
-  { title: '朋友' },
-  { title: '商城' }
-]
-
 export default memo(function GlobalHeader (props) {
+  // 渲染header导航
+  const renderHeaderLinks = (item, index) => {
+    if (item.outside) {
+      return (
+        <a key={`nav-${index}`} href={item.link} className={`${styles.navItem}`}>
+          <span>{item.title}</span>
+        </a>
+      )
+    } else {
+      return (
+        <NavLink key={`nav-${index}`} to={{ pathname: item.link }} className={`${styles.navItem}`} activeClassName={`${styles.linkActive}`}>
+          <span>{item.title}</span>
+          <sub className={`${styles.cor}`} />
+        </NavLink>
+      )
+    }
+  }
+
   return (
     <div className={`${styles.headerBar}`}>
       <div className={`${styles.mtop}`}>
-        <div className={`${styles.topContent} clearfix`}>
+        <div className={`w1100 ${styles.topContent} clearfix`}>
           <h1 className={`${styles.logo}`} />
           <div className={`${styles.nav}`}>
             {
               headerLinks.map((navitem, i) => (
-                <NavLink key={`nav-${i}`} to={{ pathname: navitem.link }} className={`${styles.navItem}`} activeClassName={`${styles.linkActive}`}>
-                  <span>{navitem.title}</span>
-                  <sub className={`${styles.cor}`} />
-                </NavLink>
+                renderHeaderLinks(navitem, i)
               ))
             }
           </div>
 
           <div className={`${styles.searchLand}`}>
-            <Form>
-              <Form.Item style={{ marginBottom: '0px' }}>
-                <Input prefix={<Icon type='search' style={{ fontSize: '18px', color: '#333333' }} />} />
-              </Form.Item>
-            </Form>
+            <Input
+              prefix={<Icon type='search' style={{ fontSize: '18px', color: '#333333' }} />}
+              autoComplete='off'
+            />
           </div>
 
           <div className={`${styles.loginLand}`}>
-            <a className={`${styles.loginBtn}`}>登录</a>
+            <AvatarDropdown />
+          </div>
+        </div>
+      </div>
+
+      <div className={`${styles.subnav}`}>
+        <div className={`w1100 ${styles.subnavWrap}`}>
+          <div className={`${styles.subnavContainer}`}>
+            {
+              dicoverMenu.map((dicitem, index) => (
+                <Link key={`subnavLink-${index}`} className={`${styles.subnavItem}`}>
+                  <em>{dicitem.title}</em>
+                </Link>
+              ))
+            }
           </div>
         </div>
       </div>
