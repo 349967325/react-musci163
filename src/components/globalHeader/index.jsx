@@ -1,9 +1,9 @@
 import React, { memo } from 'react'
-import { NavLink, Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { Input, Icon } from 'antd'
 
 import AvatarDropdown from './avatarDropdown'
-import { headerLinks, dicoverMenu } from '@/common/localdatas/localdatas'
+import { headerLinks } from '@/common/localdatas/localdatas'
 
 import styles from './index.module.scss'
 
@@ -48,20 +48,6 @@ export default memo(function GlobalHeader (props) {
 
           <div className={`${styles.loginLand}`}>
             <AvatarDropdown />
-          </div>
-        </div>
-      </div>
-
-      <div className={`${styles.subnav}`}>
-        <div className={`w1100 ${styles.subnavWrap}`}>
-          <div className={`${styles.subnavContainer}`}>
-            {
-              dicoverMenu.map((dicitem, index) => (
-                <Link key={`subnavLink-${index}`} className={`${styles.subnavItem}`}>
-                  <em>{dicitem.title}</em>
-                </Link>
-              ))
-            }
           </div>
         </div>
       </div>

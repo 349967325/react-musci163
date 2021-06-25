@@ -1,11 +1,15 @@
 import React, { memo } from 'react'
 
+import AppNavbar from '@/components/navBar/index'
+
 import styles from './index.module.scss'
 
-export default memo(function Discover (props) {
+function Discover (props) {
   return (
     <div className={`${styles.container}`}>
-      <div>这是首页</div>
+      <AppNavbar />
     </div>
   )
-})
+}
+
+export default memo(Discover)

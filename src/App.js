@@ -1,22 +1,20 @@
 
-import React, { Component } from 'react'
-import Proptypes from 'prop-types'
+import React, { Component, Suspense } from 'react'
 import {
   BrowserRouter as Router,
   Route,
-  Switch,
-  Redirect
+  Switch
 } from 'react-router-dom'
-
+import { Skeleton } from 'antd'
 import GlobalHeader from './components/globalHeader/index'
 import GlobalFooter from './components/globalFooter/index'
 
 import { connect } from 'react-redux'
-import { routerMap } from './routes/index.js'
+import routes from './routes/index.js'
 
 class App extends Component {
   static propTypes = {
-    token: Proptypes.string
+    // token: Proptypes.string
   }
 
   state = {}
@@ -24,36 +22,28 @@ class App extends Component {
   componentDidMount () {}
 
   render () {
-    const { token = '' } = this.props
-
     return (
       <Router>
         <GlobalHeader />
-
-        <Switch>
-          <Route
-            exact path='/'
-            render={props => { return <Redirect to='/home' /> }}
-          />
-
-          {routerMap.map((route, i) => (
-            <Route
-              key={i} exact
-              name={route.name}
-              path={route.path}
-              render={props => (
-                !route.auth
-                  ? <route.component {...props} />
-                  : (
-                    token && token !== ''
-                      ? <route.component {...props} />
-                      : <Redirect to={{ pathname: '/login', state: { from: props.location } }} />
-                  )
-              )}
-            />
-          ))}
-        </Switch>
-
+        <Suspense fallback={<Skeleton active />}>
+          <Switch>
+            {
+              routes.map((route, i) => (
+                <Route
+                  key={`route-${i}`}
+                  path={route.path}
+                  exact={route.exact}
+                  strict={route.strict}
+                  render={props => (
+                    route.render
+                      ? route.render({ ...props, route: route })
+                      : <route.component {...props} route={route} />
+                  )}
+                />
+              ))
+            }
+          </Switch>
+        </Suspense>
         <GlobalFooter />
       </Router>
     )
