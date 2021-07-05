@@ -1,14 +1,14 @@
-
+import React from 'react'
 import { Redirect } from 'react-router-dom'
-import JMDiscover from '@/pages/discover/index'
-import JMRecommend from '@/pages/discoverRecommend/index'
-import JMRanking from '@/pages/discoverRanking/index'
-import JMPlaylist from '@/pages/discoverPlaylist/index'
-import JMRadio from '@/pages/discoverRadio/index'
-import JMArtist from '@/pages/discoverArtist/index'
 
-import JMMine from '@/pages/mine/index'
-import JMFriend from '@/pages/friend/index'
+const JMDiscover = React.lazy(() => import('@/pages/discover/index'))
+const JMRecommend = React.lazy(() => import('@/pages/discoverRecommend/index'))
+const JMRanking = React.lazy(() => import('@/pages/discoverRanking/index'))
+const JMPlaylist = React.lazy(() => import('@/pages/discoverPlaylist/index'))
+const JMRadio = React.lazy(() => import('@/pages/discoverRadio/index'))
+const JMArtist = React.lazy(() => import('@/pages/discoverArtist/index'))
+const JMMine = React.lazy(() => import('@/pages/mine/index'))
+const JMFriend = React.lazy(() => import('@/pages/friend/index'))
 
 const routes = [
   { path: '/', exact: true, render: () => <Redirect to='/discover' /> },
@@ -18,7 +18,6 @@ const routes = [
     routes: [
       {
         path: '/discover',
-        exact: true,
         render: () => <Redirect to='/discover/recommend' />
       },
       {

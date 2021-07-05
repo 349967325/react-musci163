@@ -1,15 +1,13 @@
 
 import React, { Component, Suspense } from 'react'
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch
-} from 'react-router-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
+import { connect } from 'react-redux'
 import { Skeleton } from 'antd'
 import GlobalHeader from './components/globalHeader/index'
 import GlobalFooter from './components/globalFooter/index'
 
-import { connect } from 'react-redux'
+import renderRoutes from './common/utils/renderRoutes'
+
 import routes from './routes/index.js'
 
 class App extends Component {
@@ -26,23 +24,7 @@ class App extends Component {
       <Router>
         <GlobalHeader />
         <Suspense fallback={<Skeleton active />}>
-          <Switch>
-            {
-              routes.map((route, i) => (
-                <Route
-                  key={`route-${i}`}
-                  path={route.path}
-                  exact={route.exact}
-                  strict={route.strict}
-                  render={props => (
-                    route.render
-                      ? route.render({ ...props, route: route })
-                      : <route.component {...props} route={route} />
-                  )}
-                />
-              ))
-            }
-          </Switch>
+          {renderRoutes(routes)}
         </Suspense>
         <GlobalFooter />
       </Router>
