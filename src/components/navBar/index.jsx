@@ -1,5 +1,5 @@
 import React, { memo } from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { dicoverMenu } from '@/common/localdatas/localdatas'
 
 import styles from './index.module.scss'
@@ -11,9 +11,13 @@ export default memo(function NavBar (props) {
         <div className={`${styles.navContainer}`}>
           {
             dicoverMenu.map((dicitem, index) => (
-              <Link key={`subnavLink-${index}`} className={`${styles.navItem}`} to={{ pathname: dicitem.link }}>
+              <NavLink
+                key={`subnavLink-${index}`}
+                className={`${styles.navItem}`} to={{ pathname: dicitem.link }}
+                activeClassName={styles.menuActive}
+              >
                 <em>{dicitem.title}</em>
-              </Link>
+              </NavLink>
             ))
           }
         </div>

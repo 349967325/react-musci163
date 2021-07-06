@@ -1,0 +1,16 @@
+.recommendList {
+  margin-top: 20px;
+
+  li {
+    float: left;
+    margin-right: 42px;
+    margin-bottom: 30px;
+    width: 140px;
+    height: 204px;
+    overflow: hidden;
+
+    &:nth-child(4n + 4) {
+      margin-right: 0px;
+    }
+  }
+}

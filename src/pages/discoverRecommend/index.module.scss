@@ -1,0 +1,18 @@
+.container {
+  margin: 0px auto;
+  display: flex;
+  width: 980px;
+  border-left: 1px solid rgb(211, 211, 211);
+  border-right: 1px solid rgb(211, 211, 211);
+}
+
+.recommendLeft {
+  padding: 20px 20px 40px 20px;
+  width: 730px;
+  background-color: rgb(255, 255, 255);
+}
+
+.recommendRight {
+  width: 250px;
+  background-color: rgb(255, 255, 255);
+}

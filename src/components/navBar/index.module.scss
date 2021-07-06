@@ -31,6 +31,12 @@
     color: rgb(255, 255, 255);
   }
 
+  &.menuActive {
+    em {
+      background-color: rgb(155, 9, 9);
+    }
+  }
+
   &:hover {
     em {
       background-color: rgb(155, 9, 9);

@@ -29,7 +29,7 @@ const routes = [
         component: JMRanking
       },
       {
-        path: '/discover/playlist',
+        path: '/discover/songs',
         component: JMPlaylist
       },
       {
