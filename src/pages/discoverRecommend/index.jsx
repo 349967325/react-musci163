@@ -2,6 +2,9 @@ import React, { memo } from 'react'
 
 import TopBanner from './topBanner/index'
 import HotRecommend from './hotRecommend/index'
+import NewAlbum from './newAlbum/index'
+import UserLogin from './userLogin/index'
+import SettleSinger from './settleSinger/index' // 入驻歌手
 
 import styles from './index.module.scss'
 
@@ -13,10 +16,13 @@ export default memo(function DiscoverRecommend (props) {
       <div className={`${styles.container}`}>
         <div className={`${styles.recommendLeft}`}>
           <HotRecommend />
+          <NewAlbum />
         </div>
 
         <div className={`${styles.recommendRight}`}>
-          右侧
+          <UserLogin />
+
+          <SettleSinger />
         </div>
       </div>
     </div>

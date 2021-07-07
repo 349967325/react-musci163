@@ -1,0 +1,34 @@
+.userProfile {
+  height: 126px;
+  background-image: url('../../../assets/images/music_icons/icon_2.png');
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+}
+
+.note {
+  padding: 16px 0px;
+  margin: 0px auto;
+  width: 205px;
+  line-height: 22px;
+  font-size: 12px;
+  color: rgb(102, 102, 102);
+}
+
+.button {
+  margin: 0px auto;
+  display: block;
+  width: 100px;
+  height: 31px;
+  line-height: 31px;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  text-shadow: 0 1px 0 #8a060b;
+  background-image: url('../../../assets/images/music_icons/icon_2.png');
+  background-repeat: no-repeat;
+  background-position: 0px -195px;
+
+  &:hover {
+    background-position: -110px -195px;
+    color: rgb(255, 255, 255);
+  }
+}

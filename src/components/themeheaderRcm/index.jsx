@@ -1,38 +1,48 @@
 import React, { memo } from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { Divider } from 'antd'
 
 import styles from './index.module.scss'
 
-const tags = [
-  { id: 1, name: '华语' },
-  { id: 2, name: '流行' },
-  { id: 3, name: '摇滚' },
-  { id: 4, name: '民谣' },
-  { id: 5, name: '电子' }
-]
+function ThemeHeaderRcm (props) {
+  const { title, keywords = [], right = '更多', showIcon = true } = props
 
-export default memo(function ThemeHeaderRcm (props) {
   return (
     <div className={`${styles.themeHeader}`}>
       <div className={`${styles.themeheaderThumb}`} />
       <div className={`${styles.themeheaderContent}`}>
-        <Link className={`${styles.title}`}>热门推荐</Link>
+        <Link className={`${styles.title}`}>{title}</Link>
         <div className={`${styles.tab}`}>
           {
-            tags.map((item, i) => (
+            keywords.map((item, i) => (
               <React.Fragment key={`tagitem-${item.id}`}>
                 <Link>{item.name}</Link>
-                {i < tags.length - 1 ? <Divider type='vertical' /> : null}
+                {i < keywords.length - 1 ? <Divider type='vertical' /> : null}
               </React.Fragment>
             ))
           }
         </div>
       </div>
       <Link className={`${styles.themeheaderMore}`}>
-        <span>更多</span>
-        <span className={`${styles.arrowRight}`} />
+        <span>{right}</span>
+        {showIcon ? <span className={`${styles.arrowRight}`} /> : null}
       </Link>
     </div>
   )
-})
+}
+
+ThemeHeaderRcm.propTypes = {
+  title: PropTypes.string.isRequired,
+  keywords: PropTypes.array,
+  showIcon: PropTypes.bool,
+  right: PropTypes.string
+}
+
+ThemeHeaderRcm.defaultProps = {
+  keywords: [],
+  showIcon: true,
+  right: '更多'
+}
+
+export default memo(ThemeHeaderRcm)
