@@ -5,6 +5,7 @@ import HotRecommend from './hotRecommend/index'
 import NewAlbum from './newAlbum/index'
 import UserLogin from './userLogin/index'
 import SettleSinger from './settleSinger/index' // 入驻歌手
+import HotAnchor from './hotAnchor' // 热门主播
 
 import styles from './index.module.scss'
 
@@ -23,6 +24,8 @@ export default memo(function DiscoverRecommend (props) {
           <UserLogin />
 
           <SettleSinger />
+
+          <HotAnchor />
         </div>
       </div>
     </div>
