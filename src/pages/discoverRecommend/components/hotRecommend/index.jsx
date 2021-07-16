@@ -2,7 +2,7 @@ import React, { memo } from 'react'
 import { Link } from 'react-router-dom'
 
 import ThemeHeaderRcm from '@/components/themeheaderRcm/index'
-import { recommendTags, recommendList } from '../mockdata'
+import { recommendTags, recommendList } from '../../mockdata'
 
 import styles from './index.module.scss'
 

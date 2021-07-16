@@ -1,11 +1,11 @@
 import React, { memo } from 'react'
 
-import TopBanner from './topBanner/index'
-import HotRecommend from './hotRecommend/index'
-import NewAlbum from './newAlbum/index'
-import UserLogin from './userLogin/index'
-import SettleSinger from './settleSinger/index' // 入驻歌手
-import HotAnchor from './hotAnchor' // 热门主播
+import TopBanner from './components/topBanner/index'
+import HotRecommend from './components/hotRecommend/index'
+import NewAlbum from './components/newAlbum/index'
+import UserLogin from './components/userLogin/index'
+import SettleSinger from './components/settleSinger/index' // 入驻歌手
+import HotAnchor from './components/hotAnchor' // 热门主播
 
 import styles from './index.module.scss'
 

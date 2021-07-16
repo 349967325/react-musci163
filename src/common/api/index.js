@@ -1,5 +1,5 @@
-import loginApi from './loginApi'
+import homeApi from './homeApi'
 
 export default {
-  ...loginApi
+  ...homeApi
 }

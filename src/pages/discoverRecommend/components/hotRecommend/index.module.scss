@@ -28,7 +28,7 @@
 }
 
 .spriteCover {
-  background-image: url('../../../assets/images/music_icons/sprite_cover.png');
+  background-image: url('~@/assets/images/music_icons/sprite_cover.png');
   background-repeat: no-repeat;
 }
 
@@ -62,7 +62,7 @@
 }
 
 .spriteIcon {
-  background-image: url('../../../assets/images/music_icons/sprite_icon_1.png');
+  background-image: url('~@/assets/images/music_icons/sprite_icon_1.png');
   background-repeat: no-repeat;
 
   &.listenIcon {

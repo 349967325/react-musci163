@@ -1,4 +1,5 @@
-import React, { memo } from 'react'
+import React, { memo, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import { Carousel, Icon } from 'antd'
 
 import styles from './index.module.scss'
@@ -12,6 +13,13 @@ const banners = [
 ]
 
 export default memo(function TopBanner (props) {
+  // redux Hook 组件和redux关联: 获取数据和进行操作
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+
+  }, [dispatch])
+
   return (
     <div className={`${styles.bannerWrap}`}>
       <div className={`${styles.container}`}>

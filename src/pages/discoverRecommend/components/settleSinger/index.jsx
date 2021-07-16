@@ -2,7 +2,7 @@ import React, { memo } from 'react'
 import { Link } from 'react-router-dom'
 
 import ArtistHeaderLine from '../artistHotComposition/artistHeaderLine'
-import { singerList } from '../mockdata'
+import { singerList } from '../../mockdata'
 import styles from './index.module.scss'
 
 export default memo(function SettleSinger () {

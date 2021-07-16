@@ -6,8 +6,7 @@ import 'react-app-polyfill/stable'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import { PersistGate } from 'redux-persist/integration/react'
-import configureStore from './common/utils/configureStore'
+import store from './store/index'
 import { ConfigProvider } from 'antd'
 
 import App from './App'
@@ -17,13 +16,10 @@ import zhCN from 'antd/lib/locale-provider/zh_CN'
 import './index.css'
 
 moment.locale('zh-cn')
-const { persistor, store } = configureStore()
 
 ReactDOM.render(
   <Provider store={store}>
-    <PersistGate loading={null} persistor={persistor}>
-      <ConfigProvider locale={zhCN}><App /></ConfigProvider>
-    </PersistGate>
+    <ConfigProvider locale={zhCN}><App /></ConfigProvider>
   </Provider>,
   document.getElementById('root')
 )
