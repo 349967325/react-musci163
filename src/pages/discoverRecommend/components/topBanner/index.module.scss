@@ -8,6 +8,7 @@
 .bannerSwiper {
   width: 730px;
   height: 285px;
+  overflow: hidden;
 }
 
 .download {
@@ -34,14 +35,10 @@
   }
 }
 
-.imgBox {
+.pic {
+  display: block;
+  width: 100%;
   height: 285px;
-  overflow: hidden;
-
-  .pic {
-    display: block;
-    width: 100%;
-  }
 }
 
 .bannerBtn {
