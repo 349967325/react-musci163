@@ -1,30 +1,22 @@
 import React, { memo, useEffect, useState } from 'react'
 import { Carousel, Icon } from 'antd'
 
-import Api from '@/common/api/index'
+// import Api from '@/common/api/index'
 import styles from './index.module.scss'
 
-// const banners = [
-//   { id: 1, imageUrl: 'https://img2.baidu.com/it/u=774373677,2313985244&fm=26&fmt=auto&gp=0.jpg' },
-//   { id: 2, imageUrl: 'https://img2.baidu.com/it/u=3206640074,3081930721&fm=26&fmt=auto&gp=0.jpg' },
-//   { id: 3, imageUrl: 'https://img0.baidu.com/it/u=3545834692,4156954932&fm=26&fmt=auto&gp=0.jpg' },
-//   { id: 4, imageUrl: 'https://img0.baidu.com/it/u=3930510857,1870350260&fm=26&fmt=auto&gp=0.jpg' },
-//   { id: 5, imageUrl: 'https://img1.baidu.com/it/u=1650808851,593598514&fm=26&fmt=auto&gp=0.jpg' }
-// ]
-
 export default memo(function TopBanner (props) {
-  const [banners, setBanners] = useState([])
+  const [banners] = useState([])
 
   useEffect(() => {
-    getTopBanners()
+    // getTopBanners()
   }, [])
 
-  const getTopBanners = async () => {
-    const res = await Api.getTopBanners({})
-    if (res.code === 200) {
-      setBanners(res.banners)
-    }
-  }
+  // const getTopBanners = async () => {
+  //   const res = await Api.getTopBanners({})
+  //   if (res.code === 200) {
+  //     setBanners(res.banners)
+  //   }
+  // }
 
   const handlePrev = () => {
     console.log('上一页')
